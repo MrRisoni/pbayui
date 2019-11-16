@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import { NetworkService } from '../network.service';
 
 
 
@@ -10,14 +10,20 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 })
 export class OrderDetailsComponent implements OnInit {
 
-constructor(private  httpClient:HttpClient) {}
+    constructor(private netSrvc: NetworkService) { }
+
+
+ordersdetails ={};
 
   ngOnInit() {
+      this.netSrvc.getOrderDetails().subscribe((data: any)=>{
+          console.log('invoking');
+          console.log(data);
+          this.ordersdetails = data;
+      })
+
   }
 
 
-  getUser() {
-    return this.http.get(`https://conduit.productionready.io/api/profiles/eric`);
-  }
-  
+
 }
