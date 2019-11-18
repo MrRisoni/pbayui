@@ -1,8 +1,80 @@
-<p>
-  order-details works!
+<div class="row">
+    <div class="col-8">
+        OrderId {{ordersdetails.id}}
+    </div>
+</div>
 
 
+<div class="row">
+    <div class="col-8">
+        TransactionId {{ordersdetails.transactionId}}
+    </div>
+</div>
 
-<div class="alert alert-primary" role="alert">
-    {{ordersdetails.transactionId}}</div>
 
+<div class="row">
+    <div class="col-8">
+        createdAt {{ordersdetails.createdAt}}
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-8">
+        Items
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-10">
+        <div class="row">
+            <div class="col-6">
+                <b>Ship to</b> <br>
+                {{ordersdetails.shipTo.name}} {{ordersdetails.shipTo.surname}} <br>
+                {{ordersdetails.shipTo.street}} {{ordersdetails.shipTo.street_no}} <br>
+                {{ordersdetails.shipTo.region}} <br>
+                {{ordersdetails.shipTo.code}} <br>
+                {{ordersdetails.shipTo.city}} <br>
+                {{ordersdetails.shipTo.countryId}} <br>
+            </div>
+
+
+            <div class="col-6">
+                <b>Bill to</b> <br>
+                {{ordersdetails.bilTo.name}} {{ordersdetails.bilTo.surname}} <br>
+                {{ordersdetails.bilTo.street}} {{ordersdetails.bilTo.street_no}} <br>
+                {{ordersdetails.bilTo.region}} <br>
+                {{ordersdetails.bilTo.code}} <br>
+                {{ordersdetails.bilTo.city}} <br>
+                {{ordersdetails.bilTo.countryId}} <br>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Seller</th>
+            <th>Price</th>
+            <th>Shipping</th>
+            <th>Total</th>
+            <th>Status</th>
+            <th>Track Number</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of ordersdetails.items">
+            <td>{{item.product.title}}</td>
+            <td>{{item.seller.title}}</td>
+            <td>{{item.goods_total}}</td>
+            <td>{{item.ships_total}}</td>
+            <td>{{item.total}}</td>
+            <td>{{item.status.title}}</td>
+            <td>{{item.status.trackingNums}}</td>
+        </tr>
+    </tbody>
+</table>
