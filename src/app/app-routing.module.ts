@@ -2,10 +2,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { OrderDetailsComponent } from './order-details/order-details.component';
+import {BrowserComponent} from './browser/browser.component';
 
 
 const routes: Routes = [
-  { path: 'order', component: OrderDetailsComponent }
+  { path: 'order', component: OrderDetailsComponent },
+    { path: '', component: BrowserComponent }
+
 ];
 
 @NgModule({
