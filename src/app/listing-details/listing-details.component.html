@@ -42,17 +42,16 @@
             </div>
 
 
-            <div *ngIf="itemDetails.sellItem.shipForbidden.length>0" class="alert alert-danger" role="alert">
-                DOES NOT SHIP TO #{{itemDetails.sellItem.shipForbidden.length}} countries
-
-
+             <div *ngIf="itemDetails.maybeShippingCountryForbidden" class="alert alert-danger" role="alert">
+                Item DOES NOT ship in at least one country from your ship address list
                 <button class="btn btn-primary btn-sm" type="button" data-toggle="collapse" data-target="#collapseNotShipping" aria-expanded="false" aria-controls="collapseExample">
                     Show
                 </button>
 
             </div>
 
-            One of your shipping addresses is included here
+            // actually show only the countries in the shipping address
+
             <div class="alert alert-warning collapse" role="alert" id="collapseNotShipping">
                 {{itemDetails.notShipTo}}
             </div>
@@ -95,13 +94,12 @@
             </table>
 
 
-            <div *ngIf="itemDetails.sellItem.shipCostsExcept.length>0" class="alert alert-danger" role="alert">
-                Specific shipping costs for #{{itemDetails.sellItem.shipCostsExcept.length}} countries
+            <div *ngIf="itemDetails.maybeShippingCostExceptions" class="alert alert-danger" role="alert">
+                One of your shipping addresses is subject <b> to the below shipping costs!</b>
             </div>
 
-            One of your shipping addresses is included here
-
-            <table *ngIf="itemDetails.sellItem.shipCostsExcept.length>0" class="table table-bordered table-striped">
+// actually show only the countries in the shipping address
+            <table *ngIf="itemDetails.maybeShippingCostExceptions" class="table table-bordered table-striped">
                 <thead>
                 <tr>
                     <th>Country</th>
