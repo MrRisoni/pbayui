@@ -1,3 +1,93 @@
-<p>
-  listing-details works!
-</p>
+<section id="itemDetail">
+    <div class="row">
+        <div class="col-4">
+            <img src="/assets/potterSve.jpg">
+
+
+            <div class="row">
+                <div class="col-8">
+                    <h4>Seller</h4> <br>
+                    {{itemDetails.sellItem.sellerObj.title}}
+                    {{itemDetails.sellItem.sellerObj.rating}} stars
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-7">
+
+
+            <h3>{{itemDetails.sellItem.sellProduct.title}}</h3> <br>
+            <p>{{itemDetails.sellItem.sellProduct.otherTitle}}</p>
+
+
+            Items sold last two days:  {{itemDetails.soldLastDays}} <br>
+            Stock: {{itemDetails.sellItem.quantity}} <br>
+            Watching: {{itemDetails.watching}} <br>
+
+
+            <div class="card cardPrice">
+                <div class="card-header">
+                    Net Price : {{itemDetails.price}}  Avg. shipping 45
+                </div>
+                <div class="card-body">
+                    <button type="button" class="btn btn-primary">Add to card</button>
+                    <button type="button" class="btn btnWatch btn-dark">Watch</button>
+
+
+                </div>
+                <div class="card-footer">
+                    Offer expires at  {{itemDetails.showTo}}
+                </div>
+            </div>
+
+
+            <div *ngIf="itemDetails.sellItem.shipForbidden.length>0" class="alert alert-danger" role="alert">
+                DOES NOT SHIP TO #{{itemDetails.sellItem.shipForbidden.length}} countries
+            </div>
+
+
+            <p><b>Item Details</b></p>
+            <table class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th>Property</th>
+                    <th>Value</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let filtr of itemDetails.sellItem.sellProduct.filtersVals">
+                    <td>{{filtr.filter.title}}</td>
+                    <td>{{filtr.val}}</td>
+                </tr>
+                </tbody>
+            </table>
+
+
+            <h4>Shipping</h4> with {{itemDetails.sellItem.mailerCo}}
+            <p>Shipping costs</p>
+
+            <table class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th>Continent</th>
+                    <th>Cost</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let con of itemDetails.sellItem.shipCosts">
+                    <td>{{con.continentId}}</td>
+                    <td>{{con.cost}}</td>
+                </tr>
+                </tbody>
+            </table>
+
+
+            <div *ngIf="itemDetails.sellItem.shipCostsExcept.length>0" class="alert alert-danger" role="alert">
+                Specific shipping costs for #{{itemDetails.sellItem.shipCostsExcept.length}} countries
+            </div>
+
+
+        </div>
+    </div>
+</section>

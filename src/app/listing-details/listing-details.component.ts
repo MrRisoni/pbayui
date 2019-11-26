@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {NetworkService} from '../network.service';
 
 @Component({
   selector: 'app-listing-details',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListingDetailsComponent implements OnInit {
 
-  constructor() { }
+    constructor(private netSrvc: NetworkService) {
+    }
 
-  ngOnInit() {
-  }
+    itemDetails ={};
+
+
+    ngOnInit() {
+        this.netSrvc.getItemDetails().subscribe((data: any)=>{
+            this.itemDetails = data;
+
+        });
+
+    }
 
 }
