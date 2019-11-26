@@ -1,15 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {NetworkService} from '../network.service';
 
 @Component({
-  selector: 'app-orders-history',
-  templateUrl: './orders-history.component.html',
-  styleUrls: ['./orders-history.component.css']
+    selector: 'app-orders-history',
+    templateUrl: './orders-history.component.html',
+    styleUrls: ['./orders-history.component.css']
 })
 export class OrdersHistoryComponent implements OnInit {
 
-  constructor() { }
+    constructor(private netSrvc: NetworkService) {
+    }
 
-  ngOnInit() {
-  }
+    ordersHistory =[];
 
+
+    ngOnInit() {
+        this.netSrvc.getOrdersHistory().subscribe((data: any)=>{
+            this.ordersHistory = data;
+
+        })
+
+    }
 }

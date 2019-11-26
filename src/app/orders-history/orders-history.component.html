@@ -1,3 +1,38 @@
-<p>
-  orders-history works!
-</p>
+<div class="row">
+    <div class="col-9">
+
+
+
+        <table class="table table-bordered table-striped">
+            <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>Transaction ID</th>
+                <th>Timestamp</th>
+                <th>Goods</th>
+                <th>Ship</th>
+                <th>Fee</th>
+                <th>Total</th>
+                <th>#Items</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let ord of ordersHistory">
+                <td>{{ord.id}}</td>
+                <td>{{ord.transactionId}}</td>
+                <td>{{ord.createdAt}}</td>
+                <td>{{ord.goods_total}}</td>
+                <td>{{ord.ships_total}}</td>
+                <td>{{ord.fee}}</td>
+                <td>{{ord.total}}</td>
+                <td>{{ord.items.length}}</td>
+            </tr>
+            </tbody>
+        </table>
+
+
+
+    </div>
+
+
+</div>

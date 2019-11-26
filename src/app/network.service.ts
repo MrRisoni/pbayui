@@ -12,4 +12,8 @@ export class NetworkService {
     public getOrderDetails(){
         return this.http.get('http://localhost:3500/api/order');
     }
+
+    public getOrdersHistory(){
+        return this.http.get('http://localhost:3500/api/orders');
+    }
 }
