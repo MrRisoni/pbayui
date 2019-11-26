@@ -14,12 +14,20 @@
 
         </div>
 
-        <div class="col-7">
+        <div class="col-8">
 
 
             <h3>{{itemDetails.sellItem.sellProduct.title}}</h3> <br>
             <p>{{itemDetails.sellItem.sellProduct.otherTitle}}</p>
 
+            <p *ngIf="itemDetails.sellItem.sellProduct.preOwned==0">
+                <b>Brand New</b>
+            </p>
+
+
+            <div  *ngIf="itemDetails.sellItem.sellProduct.preOwned==1" class="alert alert-warning" role="alert">
+                <b>Pre-Owned</b>
+            </div>
 
             Items sold last two days:  {{itemDetails.soldLastDays}} <br>
             Stock: {{itemDetails.sellItem.quantity}} <br>
@@ -28,10 +36,31 @@
 
             <div class="card cardPrice">
                 <div class="card-header">
-                    Net Price : {{itemDetails.userSeesPrice}} {{itemDetails.userCurrencyCode}}  Avg. shipping 45
+                    Net Price : {{itemDetails.userSeesPrice}} <b>{{itemDetails.userCurrencyCode}}</b>  Avg. shipping 45
                 </div>
                 <div class="card-body">
-                    <button type="button" class="btn btn-primary">Add to card</button>
+
+
+                    <div class="row">
+                        <div class="col-3">
+
+                            <button type="button" class="btn btn-primary">Add to card</button>
+
+                        </div>
+
+                        <div class="col-9">
+
+                            <div class="form-group">
+                                <select class="form-control" id="exampleFormControlSelect1">
+                                    <option>Select shipping address</option>
+                                    <option *ngFor="let sad of shippingAddressList" >{{sad.street}}
+                                        {{sad.street_no}}  {{sad.code}} {{sad.region}} {{sad.city}} {{sad.country.title}} </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br><br>
                     <button type="button" class="btn btnWatch btn-dark">Watch</button>
 
 
@@ -42,24 +71,14 @@
             </div>
 
 
-             <div *ngIf="itemDetails.maybeShippingCountryForbidden" class="alert alert-danger" role="alert">
-                Item DOES NOT ship in at least one country from your ship address list
-                <button class="btn btn-primary btn-sm" type="button" data-toggle="collapse" data-target="#collapseNotShipping" aria-expanded="false" aria-controls="collapseExample">
-                    Show
-                </button>
-
-            </div>
-
-            // actually show only the countries in the shipping address
-
-            <div class="alert alert-warning collapse" role="alert" id="collapseNotShipping">
-                {{itemDetails.notShipTo}}
+            <div *ngIf="itemDetails.maybeShippingCountryForbidden"  class="alert alert-warning" role="alert" id="collapseNotShipping">
+                Item DOES NOT ship to {{itemDetails.notShipTo}}
             </div>
 
 
 
             <p><b>Item Details</b></p>
-            <table class="table table-bordered table-striped">
+            <table class="table table-bordered table-striped table-hover table-sm" id="tableFeatures">
                 <thead>
                 <tr>
                     <th>Property</th>
@@ -78,6 +97,7 @@
             <h4>Shipping</h4> with {{itemDetails.sellItem.mailerCo}}
             <p>Shipping costs</p>
 
+            // show only data for users shipping company
             <table class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -98,7 +118,6 @@
                 One of your shipping addresses is subject <b> to the below shipping costs!</b>
             </div>
 
-// actually show only the countries in the shipping address
             <table *ngIf="itemDetails.maybeShippingCostExceptions" class="table table-bordered table-striped">
                 <thead>
                 <tr>

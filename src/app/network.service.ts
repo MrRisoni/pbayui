@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 
+import {  BehaviorSubject  } from 'rxjs';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -23,5 +25,10 @@ export class NetworkService {
 
     public getContinents(){
         return this.http.get('http://localhost:3500/api/continents');
+    }
+
+
+    public getShippingAddressList(){
+        return this.http.get('http://localhost:3500/api/shipping_addresses');
     }
 }
