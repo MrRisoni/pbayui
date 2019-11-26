@@ -7,13 +7,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { OrderDetailsComponent } from './order-details/order-details.component';
 import { BrowserComponent } from './browser/browser.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { OrdersHistoryComponent } from './orders-history/orders-history.component';
+import { ListingDetailsComponent } from './listing-details/listing-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     OrderDetailsComponent,
     BrowserComponent,
-    NavbarComponent
+    NavbarComponent,
+    OrdersHistoryComponent,
+    ListingDetailsComponent
   ],
   imports: [
     BrowserModule,
