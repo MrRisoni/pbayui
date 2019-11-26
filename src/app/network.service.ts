@@ -20,4 +20,8 @@ export class NetworkService {
     public getItemDetails(){
         return this.http.get('http://localhost:3500/api/item');
     }
+
+    public getContinents(){
+        return this.http.get('http://localhost:3500/api/continents');
+    }
 }

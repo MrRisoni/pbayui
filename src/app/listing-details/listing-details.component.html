@@ -28,7 +28,7 @@
 
             <div class="card cardPrice">
                 <div class="card-header">
-                    Net Price : {{itemDetails.price}}  Avg. shipping 45
+                    Net Price : {{itemDetails.userSeesPrice}} {{itemDetails.userCurrencyCode}}  Avg. shipping 45
                 </div>
                 <div class="card-body">
                     <button type="button" class="btn btn-primary">Add to card</button>
@@ -44,7 +44,19 @@
 
             <div *ngIf="itemDetails.sellItem.shipForbidden.length>0" class="alert alert-danger" role="alert">
                 DOES NOT SHIP TO #{{itemDetails.sellItem.shipForbidden.length}} countries
+
+
+                <button class="btn btn-primary btn-sm" type="button" data-toggle="collapse" data-target="#collapseNotShipping" aria-expanded="false" aria-controls="collapseExample">
+                    Show
+                </button>
+
             </div>
+
+            One of your shipping addresses is included here
+            <div class="alert alert-warning collapse" role="alert" id="collapseNotShipping">
+                {{itemDetails.notShipTo}}
+            </div>
+
 
 
             <p><b>Item Details</b></p>
@@ -76,8 +88,8 @@
                 </thead>
                 <tbody>
                 <tr *ngFor="let con of itemDetails.sellItem.shipCosts">
-                    <td>{{con.continentId}}</td>
-                    <td>{{con.cost}}</td>
+                    <td>{{con.continentName}}</td>
+                    <td>{{con.userSeesPrice}} {{itemDetails.userCurrencyCode}}</td>
                 </tr>
                 </tbody>
             </table>
@@ -86,6 +98,23 @@
             <div *ngIf="itemDetails.sellItem.shipCostsExcept.length>0" class="alert alert-danger" role="alert">
                 Specific shipping costs for #{{itemDetails.sellItem.shipCostsExcept.length}} countries
             </div>
+
+            One of your shipping addresses is included here
+
+            <table *ngIf="itemDetails.sellItem.shipCostsExcept.length>0" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th>Country</th>
+                    <th>Cost</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let conEx of itemDetails.sellItem.shipCostsExcept">
+                    <td>{{conEx.countryName}}</td>
+                    <td>{{conEx.userSeesPrice}} {{itemDetails.userCurrencyCode}}</td>
+                </tr>
+                </tbody>
+            </table>
 
 
         </div>

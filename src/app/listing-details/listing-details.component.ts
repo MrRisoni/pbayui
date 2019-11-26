@@ -12,13 +12,19 @@ export class ListingDetailsComponent implements OnInit {
     }
 
     itemDetails ={};
-
+    continents = [];
 
     ngOnInit() {
+
+        this.netSrvc.getContinents().subscribe((data: any)=>{
+            this.continents = data;
+        });
+
         this.netSrvc.getItemDetails().subscribe((data: any)=>{
             this.itemDetails = data;
-
         });
+
+
 
     }
 
