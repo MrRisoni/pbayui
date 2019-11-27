@@ -1,0 +1,26 @@
+<article class="browseListItem">
+    <div class="row">
+        <div class="col-2">
+            <img src="/assets/potterSve.jpg" width="180">
+
+
+        </div>
+
+        <div class="col-8 browseListPrice">
+
+
+            <h3>{{itemDetails.sellItem.sellProduct.title}}</h3> <br>
+            <p>{{itemDetails.sellItem.sellProduct.otherTitle}}</p>
+
+            Items sold last two days:  {{itemDetails.soldLastDays}} <br>
+            Stock: {{itemDetails.sellItem.quantity}} <br>
+            Watching: {{itemDetails.watching}} <br>
+
+
+            Net Price : {{itemDetails.userSeesPrice}} <br>
+            Offer expires at  {{itemDetails.showTo}}
+
+
+        </div>
+    </div>
+</article>

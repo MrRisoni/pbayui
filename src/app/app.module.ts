@@ -10,6 +10,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { OrdersHistoryComponent } from './orders-history/orders-history.component';
 import { ListingDetailsComponent } from './listing-details/listing-details.component';
 import { PayComponent } from './pay/pay.component';
+import { BrowserItemComponent } from './browser-item/browser-item.component';
+import { FiltersModalComponent } from './filters-modal/filters-modal.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { PayComponent } from './pay/pay.component';
     NavbarComponent,
     OrdersHistoryComponent,
     ListingDetailsComponent,
-    PayComponent
+    PayComponent,
+    BrowserItemComponent,
+    FiltersModalComponent
   ],
   imports: [
     BrowserModule,

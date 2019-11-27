@@ -1,3 +1,136 @@
-<p>
-  browser works!
-</p>
+<app-filters-modal></app-filters-modal>
+
+<div class="row">
+
+
+    <div class="col-3">
+
+
+        <div class="row">
+            <div class="col-8">
+
+                <div class="form-group">
+                    <select class="form-control" id="selectOrderBy">
+                        <option>Sort By</option>
+                        <option>Price</option>
+                        <option>Seller Rating</option>
+                        <option>Items Sold</option>
+                        <option>Time left for offer</option>
+                    </select>
+                </div>
+
+
+                <div class="form-group">
+                    <select class="form-control" id="selectMode">
+                        <option>Mode</option>
+                        <option>Asc</option>
+                        <option>Desc</option>
+                    </select>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-12">
+
+
+                <div class="row">
+                    <div class="col-12">
+                        <h3>Price</h3>
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-6">
+                                    From <input type="text" class="form-control form-control-sm" id="fromPrice">
+                                </div>
+                                <div class="col-6">
+                                    To <input type="text" class="form-control form-control-sm" id="toPrice">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-12">
+                        <h3>Type</h3>
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-12">
+                                    <input type="checkbox" class="form-check-input" id="checkAll">
+                                    <label class="form-check-label" for="checkAll">All</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <input type="checkbox" class="form-check-input" id="checkOffers">
+                                    <label class="form-check-label" for="checkOffers">Offers</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <input type="checkbox" class="form-check-input" id="checkAuctions">
+                                    <label class="form-check-label" for="checkAuctions">Auctions</label>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-8">
+                        <h3>Condition</h3>
+
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-12">
+                                    <input type="checkbox" class="form-check-input" id="checkNew">
+                                    <label class="form-check-label" for="checkNew">New</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <input type="checkbox" class="form-check-input" id="checkUsed">
+                                    <label class="form-check-label" for="checkUsed">Used</label>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">
+            Launch demo modal
+        </button>
+
+        <br>
+        <br>
+        <br>
+
+
+        <button type="submit" class="btn btn-success">Submit</button>
+
+
+    </div>
+
+
+    <div class="col-9">
+        <app-browser-item></app-browser-item>
+        <app-browser-item></app-browser-item>
+
+    </div>
+</div>
+
+
+
