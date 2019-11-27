@@ -34,6 +34,12 @@
             Watching: {{itemDetails.watching}} <br>
 
 
+            <h2  *ngIf="itemDetails.isAuction==1">Auction!!</h2>
+            <h4  *ngIf="itemDetails.isAuction==1">Highest  Bid: {{itemDetails.highestBidding.price}} {{itemDetails.userCurrencyCode}}</h4>
+            <p>  {{itemDetails.highestBidding.hoursAgo}} hours ago</p>
+            <p  *ngIf="itemDetails.isAuction==1">Total bids last 2 days: {{itemDetails.totalBids}}</p>
+
+
             <div class="card cardPrice">
                 <div class="card-header">
                     Net Price : {{itemDetails.userSeesPrice}} <b>{{itemDetails.userCurrencyCode}}</b>  Avg. shipping 45
