@@ -15,3 +15,9 @@
 #tableFeatures {
     text-align: center;
 }
+
+
+.sellerPrice {
+    font-size:12px;
+    font-weight: bold;
+}

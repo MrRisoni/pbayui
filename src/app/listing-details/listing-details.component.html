@@ -1,4 +1,6 @@
 <section id="itemDetail">
+
+
     <div class="row">
         <div class="col-4">
             <img src="/assets/potterSve.jpg">
@@ -25,7 +27,7 @@
             </p>
 
 
-            <div  *ngIf="itemDetails.sellItem.sellProduct.preOwned==1" class="alert alert-warning" role="alert">
+            <div *ngIf="itemDetails.sellItem.sellProduct.preOwned==1" class="alert alert-warning" role="alert">
                 <b>Pre-Owned</b>
             </div>
 
@@ -33,16 +35,19 @@
             Stock: {{itemDetails.sellItem.quantity}} <br>
             Watching: {{itemDetails.watching}} <br>
 
-
-            <h2  *ngIf="itemDetails.isAuction==1">Auction!!</h2>
-            <h4  *ngIf="itemDetails.isAuction==1">Highest  Bid: {{itemDetails.highestBidding.price}} {{itemDetails.userCurrencyCode}}</h4>
-            <p>  {{itemDetails.highestBidding.hoursAgo}} hours ago</p>
-            <p  *ngIf="itemDetails.isAuction==1">Total bids last 2 days: {{itemDetails.totalBids}}</p>
+                <section *ngIf="itemDetails.isAuction==1">
+                <h2>Auction!!</h2>
+                <h4>Highest  Bid: {{itemDetails.highestBidding.price}} {{itemDetails.userCurrencyCode}}</h4>
+                <p>  {{itemDetails.highestBidding.hoursAgo}} hours ago</p>
+                <p>Total bids last 2 days: {{itemDetails.totalBids}}</p>
+            </section>
 
 
             <div class="card cardPrice">
                 <div class="card-header">
-                    Net Price : {{itemDetails.userSeesPrice}} <b>{{itemDetails.userCurrencyCode}}</b>  Avg. shipping 45
+                    Net Price   {{itemDetails.userSeesPrice}} {{itemDetails.userCurrencyCode}}
+                    Average Shipping {{itemDetails.avgShipPrice}} {{itemDetails.userCurrencyCode}}
+                    <p class="sellerPrice">Seller Price {{itemDetails.price}} {{itemDetails.productCurrencyCode}} </p>
                 </div>
                 <div class="card-body">
 
@@ -59,14 +64,14 @@
                             <div class="form-group">
                                 <select class="form-control" id="exampleFormControlSelect1">
                                     <option>Select shipping address</option>
-                                    <option *ngFor="let sad of shippingAddressList" >{{sad.street}}
+                                    <option *ngFor="let sad of shippingAddressList">{{sad.street}}
                                         {{sad.street_no}}  {{sad.code}} {{sad.region}} {{sad.city}} {{sad.country.title}} </option>
                                 </select>
                             </div>
                         </div>
                     </div>
 
-                    <br><br>
+                    <br/><br>
                     <button type="button" class="btn btnWatch btn-dark">Watch</button>
 
 
@@ -77,10 +82,10 @@
             </div>
 
 
-            <div *ngIf="itemDetails.maybeShippingCountryForbidden"  class="alert alert-warning" role="alert" id="collapseNotShipping">
+            <div *ngIf="itemDetails.maybeShippingCountryForbidden" class="alert alert-warning" role="alert"
+                 id="collapseNotShipping">
                 Item DOES NOT ship to {{itemDetails.notShipTo}}
             </div>
-
 
 
             <p><b>Item Details</b></p>
@@ -103,7 +108,6 @@
             <h4>Shipping</h4> with {{itemDetails.sellItem.mailerCo}}
             <p>Shipping costs</p>
 
-            // show only data for users shipping company
             <table class="table table-bordered table-striped">
                 <thead>
                 <tr>
