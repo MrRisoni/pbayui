@@ -31,4 +31,8 @@ export class NetworkService {
     public getShippingAddressList(){
         return this.http.get('http://localhost:3500/api/shipping_addresses');
     }
+
+    public getSearchResults(){
+        return this.http.get('http://localhost:3500/api/listings');
+    }
 }
