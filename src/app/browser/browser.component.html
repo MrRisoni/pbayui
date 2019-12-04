@@ -126,8 +126,11 @@
 
 
     <div class="col-9">
-        <app-browser-item></app-browser-item>
-        <app-browser-item></app-browser-item>
+
+        <div *ngFor="let listItm of listings">
+            <app-browser-item  [listItmObj]="listItm"></app-browser-item>
+        </div>
+
 
     </div>
 </div>

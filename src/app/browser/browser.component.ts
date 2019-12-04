@@ -16,8 +16,11 @@ export class BrowserComponent implements OnInit {
     ngOnInit() {
         this.netSrvc.getSearchResults().subscribe((data: any)=>{
             console.log('invoking');
-            console.log(data);
             this.filterVals = data.filterVals;
+            this.listings = data.listings;
+
+
+            console.log(this.listings);
         })
 
     }
