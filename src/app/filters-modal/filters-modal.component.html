@@ -14,8 +14,8 @@
 
                     <li class="nav-item" *ngFor="let item of filterValsObj | keyvalue">
                         <!-- </b> and Value: <b>{{item.value}}</b> -->
-                        <a class="nav-link active" id="{{item.key}}-tab" data-toggle="tab" href="#{{item.key}}" role="tab"
-                           [attr.aria-controls]="{{item.key}}" > {{item.key}}</a>
+                        <a class="nav-link" id="{{item.key}}-tab" data-toggle="tab" href="#{{item.key}}" role="tab"
+                           attr.aria-controls="{{item.key}}"   > {{item.key}}</a>
                     </li>
                 </ul>
 
