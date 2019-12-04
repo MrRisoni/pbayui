@@ -27,7 +27,7 @@ export class NetworkService {
         return this.http.get('http://localhost:3500/api/continents');
     }
 
-
+// https://aqueous-wave-62938.herokuapp.com/api/item
     public getShippingAddressList(){
         return this.http.get('http://localhost:3500/api/shipping_addresses');
     }
