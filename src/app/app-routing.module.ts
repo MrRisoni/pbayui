@@ -1,25 +1,10 @@
-import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 
-import {OrderDetailsComponent} from './order-details/order-details.component';
-import {BrowserComponent} from './browser/browser.component';
-import {OrdersHistoryComponent} from './orders-history/orders-history.component';
-import {ListingDetailsComponent} from './listing-details/listing-details.component';
-import {PayComponent} from './pay/pay.component';
-
-
-const routes: Routes = [
-    {path: 'order', component: OrderDetailsComponent},
-    {path: 'orders/history', component: OrdersHistoryComponent},
-    {path: 'item', component: ListingDetailsComponent},
-    {path: 'pay', component: PayComponent},
-    {path: '', component: BrowserComponent}
-
-];
+const routes: Routes = [];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
-    exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
 })
-export class AppRoutingModule {
-}
+export class AppRoutingModule { }
